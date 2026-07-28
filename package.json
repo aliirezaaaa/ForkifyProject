@@ -1,0 +1,24 @@
+{
+  "name": "forkifyproject",
+  "version": "1.0.0",
+  "description": "food recipe application",
+  "homepage": "https://github.com/aliirezaaaa/ForkifyProject#readme",
+  "bugs": {
+    "url": "https://github.com/aliirezaaaa/ForkifyProject/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aliirezaaaa/ForkifyProject.git"
+  },
+  "license": "ISC",
+  "author": "alireza",
+  "type": "commonjs",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.16.4",
+    "parcel": "^2.16.4"
+  }
+}
