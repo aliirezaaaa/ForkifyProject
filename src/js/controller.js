@@ -1,4 +1,5 @@
 import * as model from './model.js';
+import bookMarksView from './views/bookMarksView.js';
 import paginationView from './views/paginationView.js';
 import recipeView from './views/recipeView.js';
 import resultsView from './views/resultsView.js';
@@ -58,9 +59,22 @@ const controlServings = function (newServing) {
   recipeView.update(model.state.recipe);
 };
 
+const controlAddBookMark = function () {
+  //add/remove bookmarks
+  if (!model.state.recipe.bookmarked) model.addBookMark(model.state.recipe);
+  else model.deleteBookMark(model.state.recipe.id);
+
+  //update recipe view
+  recipeView.update(model.state.recipe);
+
+  //render bookmarks
+  bookMarksView.render(model.state.bookMarks);
+};
+
 const init = function () {
   recipeView.addHandlerRender(controlRecipes);
   recipeView.addHandlerUpdateServings(controlServings);
+  recipeView.addHandlerAddBookmark(controlAddBookMark);
   searchView.addHandlerSearch(controlSearchResults);
   paginationView.addHandlerClick(controlPagination);
 };
