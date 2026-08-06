@@ -49,11 +49,13 @@ const controlPagination = function (goToPage) {
   paginationView.render(model.state.search);
 };
 
-const controlServings = async function (newServing) {
+const controlServings = function (newServing) {
   //update recipe servings in state
-  await model.updateServing(newServing);
+  model.updateServing(newServing);
+
   //update the recipe view
-  await recipeView.render(model.state.recipe);
+  // recipeView.render(model.state.recipe);
+  recipeView.update(model.state.recipe);
 };
 
 const init = function () {
